@@ -109,6 +109,9 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void botaoMusicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMusicasActionPerformed
         // TODO add your handling code here:
+        MusicasFrame mf = new MusicasFrame();
+        mf.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botaoMusicasActionPerformed
 
     /**
