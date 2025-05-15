@@ -17,6 +17,7 @@ public class UsuarioDAO {
     public UsuarioDAO(Connection conn) {
         this.conn = conn;
     }
+    //função para verificar se o usuario existe e a senha esta correta
     public ResultSet consultar(Usuario usuario) throws SQLException{
         String sql = "select * from usuarios where email = ? and senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -26,7 +27,7 @@ public class UsuarioDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-    
+    //função para cadastrar usuario
     public void inserir(Usuario usuario) throws SQLException {
         String sql = "INSERT INTO usuarios (nome, idade, email, senha) VALUES (?, ?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);

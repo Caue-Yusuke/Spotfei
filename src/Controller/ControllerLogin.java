@@ -23,7 +23,7 @@ public class ControllerLogin {
         this.view = view;
     }
     public void loginUsuario(){
-        Usuario usuario = new Usuario(view.getEmail_login().getText(),view.getSenha_login().getText(), null, 0);
+        Usuario usuario = new Usuario(view.getEmail_login().getText(),view.getSenha_login().getText(), null, 0, 0);
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -34,11 +34,12 @@ public class ControllerLogin {
                                               "Login efetuado!", 
                                               "Aviso",
                                               JOptionPane.INFORMATION_MESSAGE);
+                int id = res.getInt("id");
                 String nome = res.getString("nome");
                 int idade = res.getInt("idade");
                 String email = res.getString("email");
                 String senha = res.getString("senha");
-                Usuario usuario2 = new Usuario(email, senha, nome, idade);
+                Usuario usuario2 = new Usuario(email, senha, nome, idade, id);
               
                 MenuFrame menu = new MenuFrame(usuario2);
                 menu.setVisible(true);

@@ -9,13 +9,14 @@ package Model;
  * @author Acer Nitro 5
  */
 public class Artista extends Pessoa{
+    //atributos de artista
     private int id;
 
     public Artista(int id, String nome, int idade) {
         super(nome, idade);
         this.id = id;
     }
-
+    //getters e setters de artista
     public int getId() {
         return id;
     }

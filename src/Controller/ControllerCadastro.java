@@ -30,7 +30,7 @@ public class ControllerCadastro {
         String idadeString = view.getIdade_cadastro().getText();
         int idade = Integer.parseInt(idadeString);
         
-        Usuario usuario = new Usuario(email, senha, nome, idade);
+        Usuario usuario = new Usuario(email, senha, nome, idade, 0);
         
         Conexao conexao = new Conexao();
         try {
