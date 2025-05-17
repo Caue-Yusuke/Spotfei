@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.ControllerMenu;
 import Model.Usuario;
 
 /**
@@ -17,6 +18,7 @@ public class MenuFrame extends javax.swing.JFrame {
      */
     public MenuFrame(Usuario usuario) {
         initComponents();
+        c = new ControllerMenu(this);
         lbl_nome_usuario.setText(usuario.getNome());
         usuario.autenticar();
     }
@@ -75,10 +77,25 @@ public class MenuFrame extends javax.swing.JFrame {
         jScrollPane2.setViewportView(painelPlaylist);
 
         botaoCurtidas.setText("Curtidas");
+        botaoCurtidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCurtidasActionPerformed(evt);
+            }
+        });
 
         botaoDescurtidas.setText("Descurtidas");
+        botaoDescurtidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDescurtidasActionPerformed(evt);
+            }
+        });
 
         botaoHistorico.setText("Historico");
+        botaoHistorico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoHistoricoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +161,24 @@ public class MenuFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_botaoMusicasActionPerformed
 
+    private void botaoCurtidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCurtidasActionPerformed
+        // TODO add your handling code here:
+        c.buscarMusicasCurtidas();
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoCurtidasActionPerformed
+
+    private void botaoDescurtidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDescurtidasActionPerformed
+        // TODO add your handling code here:
+        c.buscarMusicasDescurtidas();
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoDescurtidasActionPerformed
+
+    private void botaoHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoHistoricoActionPerformed
+        // TODO add your handling code here:
+        c.buscarMusicasHistorico();
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoHistoricoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,7 +213,7 @@ public class MenuFrame extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private ControllerMenu c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCurtidas;
     private javax.swing.JButton botaoDescurtidas;

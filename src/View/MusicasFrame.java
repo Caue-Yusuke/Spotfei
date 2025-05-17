@@ -30,6 +30,7 @@ public class MusicasFrame extends javax.swing.JFrame {
 
     public MusicasFrame() {
         initComponents();
+        
         c = new ControllerMusicas(this);
         ArrayList<Musica> musicas = c.buscarMusicas();
         mostrarMusicas(musicas);

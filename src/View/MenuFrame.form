@@ -143,16 +143,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Curtidas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCurtidasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoDescurtidas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descurtidas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoDescurtidasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoHistorico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Historico"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoHistoricoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
