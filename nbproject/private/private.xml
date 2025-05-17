@@ -3,13 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MenuFrame.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/LoginFrame.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerLogin.java</file>
-            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/spotfei/Spotfei.java</file>
-            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MenuFrame.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/UsuarioDAO.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/CadastroFrame.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/spotfei/Spotfei.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerCadastro.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Musica.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Pessoa.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Artista.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Playlist.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/Conexao.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Autenticacao.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Usuario.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MusicasFrame.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerMusicas.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/MusicasDAO.java</file>
         </group>
     </open-files>
 </project-private>

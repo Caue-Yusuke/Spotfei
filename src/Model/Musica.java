@@ -10,11 +10,16 @@ package Model;
  */
 public class Musica {
     //atributos musica
+    private int id;
     private String titulo; 
     private int duracao;
-    private int IDartista;
+    private String artista;
     private String genero;
     private String letra;
+
+    public Musica() {
+    }
+    
     
     //getter e setters de musica
 
@@ -34,12 +39,12 @@ public class Musica {
         this.duracao = duracao;
     }
 
-    public int getIDartista() {
-        return IDartista;
+    public String getArtista() {
+        return artista;
     }
 
-    public void setIDartista(int IDartista) {
-        this.IDartista = IDartista;
+    public void setArtista(String artista) {
+        this.artista = artista;
     }
 
     public String getGenero() {
@@ -56,6 +61,14 @@ public class Musica {
 
     public void setLetra(String letra) {
         this.letra = letra;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

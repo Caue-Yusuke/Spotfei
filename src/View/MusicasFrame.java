@@ -8,6 +8,7 @@ import Controller.ControllerMusicas;
 import DAO.Conexao;
 import DAO.MusicasDAO;
 import Model.Musica;
+import Model.Sessao;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
@@ -35,33 +36,25 @@ public class MusicasFrame extends javax.swing.JFrame {
     }
 
     private void mostrarMusicas(ArrayList<Musica> musicas) {
-        painelMusicas.removeAll(); // limpa se já tiver músicas
+        painelMusicas.removeAll();
         painelMusicas.setLayout(new BoxLayout(painelMusicas, BoxLayout.Y_AXIS));
 
         for (Musica m : musicas) {
-            JPanel painelMusica = new JPanel(new FlowLayout());
-            painelMusica.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
+            MusicaPanel mp = new MusicaPanel();
+            mp.setId(m.getId());
+            mp.setTitulo(m.getTitulo());
+            mp.setArtista(m.getArtista());
+            mp.setGenero(m.getGenero());
+            mp.setDuracao(m.getDuracao());
+            mp.setLetra(m.getLetra()); //aqui eu passo a leta e o id da musica pra quando ele clicar no botao ele salvar no historico
 
-            JLabel titulo = new JLabel("Título: " + m.getTitulo());
-            JLabel artista = new JLabel("ID Artista: " + m.getIDartista());
-            JLabel duracao = new JLabel("Duração: " + m.getDuracao() + "s");
-            JButton botaoLetra = new JButton("Letra");
-
-            botaoLetra.addActionListener(e -> {
-                JOptionPane.showMessageDialog(this, m.getLetra(), "Letra da Música", JOptionPane.INFORMATION_MESSAGE);
-            });
-
-            painelMusica.add(titulo);
-            painelMusica.add(artista);
-            painelMusica.add(duracao);
-            painelMusica.add(botaoLetra);
-
-            painelMusicas.add(painelMusica);
+            painelMusicas.add(mp);
         }
 
         painelMusicas.revalidate();
         painelMusicas.repaint();
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +77,7 @@ public class MusicasFrame extends javax.swing.JFrame {
         botaoPesquisa = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         painelMusicas = new javax.swing.JPanel();
-        lblTeste = new javax.swing.JLabel();
+        botaoVoltar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,26 +165,25 @@ public class MusicasFrame extends javax.swing.JFrame {
 
         painelMusicas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTeste.setText("A");
-
         javax.swing.GroupLayout painelMusicasLayout = new javax.swing.GroupLayout(painelMusicas);
         painelMusicas.setLayout(painelMusicasLayout);
         painelMusicasLayout.setHorizontalGroup(
             painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelMusicasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 392, Short.MAX_VALUE)
         );
         painelMusicasLayout.setVerticalGroup(
             painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelMusicasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTeste)
-                .addContainerGap(121, Short.MAX_VALUE))
+            .addGap(0, 127, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(painelMusicas);
+
+        botaoVoltar.setText("VOLTAR");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,17 +192,22 @@ public class MusicasFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botaoVoltar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(botaoVoltar)
+                .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -232,6 +229,13 @@ public class MusicasFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Por favor, selecione um filtro antes de pesquisar."); // para não continuar sem filtro
         }
     }//GEN-LAST:event_botaoPesquisaActionPerformed
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        // TODO add your handling code here:
+        MenuFrame menu = new MenuFrame(Sessao.getUsuario());
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +275,7 @@ public class MusicasFrame extends javax.swing.JFrame {
      private ControllerMusicas c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoPesquisa;
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -278,7 +283,6 @@ public class MusicasFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblTeste;
     private javax.swing.JPanel painelMusicas;
     private javax.swing.JRadioButton radioArtista;
     private javax.swing.JRadioButton radioGenero;

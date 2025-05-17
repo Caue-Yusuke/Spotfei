@@ -6,6 +6,7 @@ package Controller;
 
 import DAO.Conexao;
 import DAO.UsuarioDAO;
+import Model.Sessao;
 import Model.Usuario;
 import View.LoginFrame;
 import View.MenuFrame;
@@ -40,8 +41,9 @@ public class ControllerLogin {
                 String email = res.getString("email");
                 String senha = res.getString("senha");
                 Usuario usuario2 = new Usuario(email, senha, nome, idade, id);
-              
-                MenuFrame menu = new MenuFrame(usuario2);
+                Sessao.setUsuario(usuario2); 
+
+                MenuFrame menu = new MenuFrame(Sessao.getUsuario());
                 menu.setVisible(true);
             } else{
                 JOptionPane.showMessageDialog(view, 

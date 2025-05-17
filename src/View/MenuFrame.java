@@ -34,8 +34,13 @@ public class MenuFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         botaoMusicas = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        painelPlaylist = new javax.swing.JPanel();
+        botaoCurtidas = new javax.swing.JButton();
+        botaoDescurtidas = new javax.swing.JButton();
+        botaoHistorico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,20 +57,28 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setText("Adicionar");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+        jButton2.setText("Remover");
+
+        javax.swing.GroupLayout painelPlaylistLayout = new javax.swing.GroupLayout(painelPlaylist);
+        painelPlaylist.setLayout(painelPlaylistLayout);
+        painelPlaylistLayout.setHorizontalGroup(
+            painelPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+        painelPlaylistLayout.setVerticalGroup(
+            painelPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 219, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        jScrollPane2.setViewportView(painelPlaylist);
+
+        botaoCurtidas.setText("Curtidas");
+
+        botaoDescurtidas.setText("Descurtidas");
+
+        botaoHistorico.setText("Historico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,14 +93,23 @@ public class MenuFrame extends javax.swing.JFrame {
                 .addComponent(botaoMusicas)
                 .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
+                        .addGap(6, 6, 6)
+                        .addComponent(botaoCurtidas)
+                        .addGap(30, 30, 30)
+                        .addComponent(botaoDescurtidas)
+                        .addGap(38, 38, 38)
+                        .addComponent(botaoHistorico))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,11 +119,19 @@ public class MenuFrame extends javax.swing.JFrame {
                     .addComponent(lbl_nome_usuario)
                     .addComponent(jLabel1)
                     .addComponent(botaoMusicas))
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCurtidas)
+                    .addComponent(botaoDescurtidas)
+                    .addComponent(botaoHistorico))
+                .addContainerGap())
         );
 
         pack();
@@ -150,11 +180,16 @@ public class MenuFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCurtidas;
+    private javax.swing.JButton botaoDescurtidas;
+    private javax.swing.JButton botaoHistorico;
     private javax.swing.JButton botaoMusicas;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_nome_usuario;
+    private javax.swing.JPanel painelPlaylist;
     // End of variables declaration//GEN-END:variables
 }
