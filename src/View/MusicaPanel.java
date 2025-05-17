@@ -66,6 +66,8 @@ public class MusicaPanel extends javax.swing.JPanel {
         labelDuracao = new javax.swing.JLabel();
         botaoLetra = new javax.swing.JButton();
         labelIdMusica = new javax.swing.JLabel();
+        botaoCurtir = new javax.swing.JButton();
+        botaoDescurtir = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -86,43 +88,67 @@ public class MusicaPanel extends javax.swing.JPanel {
 
         labelIdMusica.setText("ID:");
 
+        botaoCurtir.setText("👍");
+        botaoCurtir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCurtirActionPerformed(evt);
+            }
+        });
+
+        botaoDescurtir.setText("👎");
+        botaoDescurtir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDescurtirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitulo)
-                    .addComponent(labelArtista))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelIdMusica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTitulo)
+                            .addComponent(labelArtista))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelDuracao)
+                            .addComponent(labelGenero))
+                        .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelDuracao)
+                        .addComponent(botaoCurtir)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoLetra))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelGenero)
-                        .addGap(42, 42, 42)
-                        .addComponent(labelIdMusica)))
-                .addGap(30, 30, 30))
+                        .addComponent(botaoDescurtir))
+                    .addComponent(botaoLetra))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoLetra)
-                    .addComponent(labelDuracao)
-                    .addComponent(labelTitulo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelArtista)
-                        .addComponent(labelGenero))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelIdMusica)
-                        .addContainerGap())))
+                    .addComponent(labelIdMusica, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoCurtir, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoDescurtir, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelDuracao)
+                            .addComponent(labelTitulo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelArtista)
+                            .addComponent(labelGenero)))
+                    .addComponent(botaoLetra))
+                .addGap(6, 6, 6))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -131,8 +157,20 @@ public class MusicaPanel extends javax.swing.JPanel {
         c.salvarHistorico(ID_MUSICA);
     }//GEN-LAST:event_botaoLetraActionPerformed
 
+    private void botaoCurtirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCurtirActionPerformed
+        // TODO add your handling code here:
+        c.curtirMusica(ID_MUSICA);
+    }//GEN-LAST:event_botaoCurtirActionPerformed
+
+    private void botaoDescurtirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDescurtirActionPerformed
+        // TODO add your handling code here:
+        c.descurtirMusica(ID_MUSICA);
+    }//GEN-LAST:event_botaoDescurtirActionPerformed
+
     private ControllerMusicasPanel c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCurtir;
+    private javax.swing.JButton botaoDescurtir;
     private javax.swing.JButton botaoLetra;
     private javax.swing.JLabel labelArtista;
     private javax.swing.JLabel labelDuracao;

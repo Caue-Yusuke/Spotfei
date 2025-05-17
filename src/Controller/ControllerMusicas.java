@@ -5,7 +5,6 @@
 package Controller;
 
 import DAO.Conexao;
-import DAO.HistoricoDAO;
 import DAO.MusicasDAO;
 import Model.Musica;
 import Model.Sessao;
@@ -51,23 +50,3 @@ public class ControllerMusicas {
     
     
 }
-//public void salvarUsuario(){
-//        
-//        String email = view.getEmail_cadastro().getText();
-//        String senha = view.getSenha_cadastro().getText();
-//        String nome = view.getNome_cadastro().getText();
-//        String idadeString = view.getIdade_cadastro().getText();
-//        int idade = Integer.parseInt(idadeString);
-//        
-//        Usuario usuario = new Usuario(email, senha, nome, idade, 0);
-//        
-//        Conexao conexao = new Conexao();
-//        try {
-//            Connection conn = conexao.getConnection();
-//            UsuarioDAO dao = new UsuarioDAO(conn);
-//            dao.inserir(usuario);
-//            JOptionPane.showMessageDialog(view, "Usuario Cadastrado!","Aviso", JOptionPane.INFORMATION_MESSAGE);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(view, "Usuário não cadastrado!","Erro", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
