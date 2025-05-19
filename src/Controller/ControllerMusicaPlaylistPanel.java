@@ -3,24 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-
 import DAO.Conexao;
 import DAO.PlaylistDAO;
 import Model.Sessao;
-import View.MusicaPanel;
-import View.MusicasFrame;
-import java.sql.Connection;
-import java.sql.SQLException;
+import View.MusicaPlaylistPanel;
+import java.sql.*;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Acer Nitro 5
  */
-public class ControllerMusicasPanel {
-    private MusicaPanel view;
-    //contrutor´para o musicasPanel
-    public ControllerMusicasPanel(MusicaPanel view) {
+public class ControllerMusicaPlaylistPanel {
+    private MusicaPlaylistPanel view;
+    
+    public ControllerMusicaPlaylistPanel(MusicaPlaylistPanel view) {
         this.view = view;
     }
     

@@ -4,6 +4,11 @@
  */
 package View;
 
+import Controller.ControllerPlaylistPanel;
+import Model.Playlist;
+import java.awt.Window;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Acer Nitro 5
@@ -13,8 +18,12 @@ public class PlaylistPanel extends javax.swing.JPanel {
     /**
      * Creates new form PlaylistPanel
      */
-    public PlaylistPanel() {
+    public PlaylistPanel(Playlist playlist) {
         initComponents();
+        c = new ControllerPlaylistPanel(this);
+        thisPlaylist = playlist;
+        txt_id_playlist.setText("ID: "+ playlist.getId_playlist());
+        txtNome.setText("" + thisPlaylist.getNome());
     }
 
     /**
@@ -26,10 +35,13 @@ public class PlaylistPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
         botaoPlaylist = new javax.swing.JButton();
+        txt_id_playlist = new javax.swing.JLabel();
 
-        jLabel1.setText("NOME");
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtNome.setText("NOME");
 
         botaoPlaylist.setText("VER");
         botaoPlaylist.addActionListener(new java.awt.event.ActionListener() {
@@ -38,35 +50,50 @@ public class PlaylistPanel extends javax.swing.JPanel {
             }
         });
 
+        txt_id_playlist.setText("ID:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(botaoPlaylist)
-                .addGap(50, 50, 50))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 65, Short.MAX_VALUE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(botaoPlaylist)
+                        .addGap(50, 50, 50))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_id_playlist, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addComponent(txt_id_playlist)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPlaylist))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPlaylistActionPerformed
         // TODO add your handling code here:
+        PlaylistFrame pf = new PlaylistFrame(thisPlaylist);
+        pf.setVisible(true);
+        //esse bagulho fecha o "ancetral" do painel
+        Window janela = SwingUtilities.getWindowAncestor(PlaylistPanel.this);
+        janela.setVisible(false);
     }//GEN-LAST:event_botaoPlaylistActionPerformed
-
-
+    private Playlist thisPlaylist;
+    private ControllerPlaylistPanel c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoPlaylist;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txt_id_playlist;
     // End of variables declaration//GEN-END:variables
 }

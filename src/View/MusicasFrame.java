@@ -47,7 +47,7 @@ public class MusicasFrame extends javax.swing.JFrame {
             mp.setArtista(m.getArtista());
             mp.setGenero(m.getGenero());
             mp.setDuracao(m.getDuracao());
-            mp.setLetra(m.getLetra()); //aqui eu passo a leta e o id da musica pra quando ele clicar no botao ele salvar no historico
+            mp.setLetra(m.getLetra());
 
             painelMusicas.add(mp);
         }

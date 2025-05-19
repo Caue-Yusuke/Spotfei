@@ -62,25 +62,22 @@ public class MusicasDAO {
         ResultSet resultado = stmt.getResultSet();
         return resultado;
     }
-    
+    public ResultSet getMusicasPlaylist(int id_playlist) throws SQLException {
+        System.out.println(id_playlist);
+        String sql = "SELECT p.id_playlist, m.*\n" +
+                     "FROM musicas m\n" +
+                     "JOIN musica_playlist mp\n" +
+                     "ON m.id_musica = mp.id_musica\n" +
+                     "JOIN playlist p\n" +
+                     "ON mp.id_playlist = p.id_playlist\n" +
+                     "WHERE p.id_usuario = ?\n" +
+                     "AND p.id_playlist = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, Sessao.getUsuario().getId());
+        stmt.setInt(2, id_playlist);
+        stmt.execute(); 
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
     
 }
-//public ArrayList<Musica> getAllMusicas() throws SQLException {
-//        ArrayList<Musica> musicas = new ArrayList<>();
-//        String sql = "SELECT * FROM musica";  // Ou faça JOIN se quiser nome do artista
-//
-//        PreparedStatement stmt = connection.prepareStatement(sql);
-//        ResultSet rs = stmt.executeQuery();
-//
-//        while (rs.next()) {
-//            Musica m = new Musica();
-//            m.setTitulo(rs.getString("titulo"));
-//            m.setDuracao(rs.getInt("duracao"));
-//            m.setGenero(rs.getString("genero"));
-//            m.setLetra(rs.getString("letra"));
-//            m.setIDartista(rs.getInt("id_artista")); // ou nome do artista, se usar JOIN
-//            musicas.add(m);
-//        }
-//
-//        return musicas;
-//    }

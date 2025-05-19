@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+import Model.Sessao;
 import java.sql.*;
 
 /**
@@ -43,5 +44,31 @@ public class PlaylistDAO {
         statement.executeUpdate();
         conn.close();
     }
-    
+    public void criarPlaylist(String nome_playlist)throws SQLException{
+        String sql = "INSERT INTO playlist (nome, id_usuario) VALUES(?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, nome_playlist);
+        stmt.setInt(2, Sessao.getUsuario().getId());
+        stmt.executeUpdate();
+        conn.close();
+        
+    }
+    public ResultSet getPlaylists() throws SQLException {
+        String sql = "SELECT * FROM playlist";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.execute();
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
+    public void deletePlaylist(int id_playlist)throws SQLException{
+        String sql = "DELETE FROM playlist\n" +
+                     "WHERE id_playlist = ?;\n" +
+                     "DELETE FROM musica_playlist\n" +
+                     "WHERE id_playlist = ?;";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id_playlist);
+        stmt.setInt(2, id_playlist);
+        stmt.executeUpdate();
+        conn.close();
+    }
 }

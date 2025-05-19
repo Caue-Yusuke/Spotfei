@@ -12,9 +12,20 @@ import java.util.ArrayList;
  */
 public class Playlist {
     //atributos da playlist
+    private int id_playlist;
     private String nome;
     private ArrayList<Musica> musicas;
     private int IDusuario;
+
+    public Playlist() {
+    }
+    
+    public Playlist(String nome, int IDusuario, int id_playlist) {
+        this.IDusuario = IDusuario;
+        this.id_playlist =  id_playlist;
+        this.nome = nome;
+    }
+    
     
     //getters e setters de playList
 
@@ -40,6 +51,14 @@ public class Playlist {
 
     public void setIDusuario(int IDusuario) {
         this.IDusuario = IDusuario;
+    }
+
+    public int getId_playlist() {
+        return id_playlist;
+    }
+
+    public void setId_playlist(int id_playlist) {
+        this.id_playlist = id_playlist;
     }
     
     

@@ -19,6 +19,16 @@ public class Musica {
 
     public Musica() {
     }
+
+    public Musica(int id, String titulo, int duracao, String artista, String genero, String letra) {
+        this.id = id;
+        this.titulo = titulo;
+        this.duracao = duracao;
+        this.artista = artista;
+        this.genero = genero;
+        this.letra = letra;
+    }
+    
     
     
     //getter e setters de musica

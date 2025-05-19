@@ -5,6 +5,7 @@
 package Controller;
 import DAO.Conexao;
 import DAO.MusicasDAO;
+import DAO.PlaylistDAO;
 import Model.Musica;
 import Model.Playlist;
 import Model.Sessao;
@@ -107,5 +108,48 @@ public class ControllerMenu {
         } catch (SQLException e) {
             e.printStackTrace(); 
         }
+    }
+    public ArrayList<Playlist> buscarPlaylists(){
+        ArrayList<Playlist> playlists = new ArrayList<>();
+        Conexao conexao = new Conexao();
+        try {
+            Connection conn = conexao.getConnection();
+            PlaylistDAO dao = new PlaylistDAO(conn);
+            ResultSet res = dao.getPlaylists();
+            while (res.next()) {
+                Playlist p = new Playlist();
+                p.setIDusuario(Sessao.getUsuario().getId());
+                p.setNome(res.getString("nome"));
+                p.setId_playlist(res.getInt("id_playlist"));
+                playlists.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // pode trocar por JOptionPane se for necessário
+        }
+        return playlists;
+    }
+    public ArrayList<Musica> buscarMusicasPlaylist(int id_playlist){
+        ArrayList<Musica> musicas = new ArrayList<>();
+        Conexao conexao = new Conexao ();
+        try{
+            Connection conn = conexao.getConnection();
+            MusicasDAO dao = new MusicasDAO(conn);
+            ResultSet res = dao.getMusicasPlaylist(id_playlist);
+            while (res.next()) {
+                Musica m = new Musica();
+                m.setArtista(res.getString("artista"));
+                m.setDuracao(res.getInt("duracao"));
+                m.setGenero(res.getString("genero"));
+                m.setTitulo(res.getString("titulo"));
+                m.setId(res.getInt("id_musica"));
+                m.setLetra(res.getString("letra"));
+                musicas.add(m);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace(); // pode trocar por JOptionPane se for necessário
+        }
+            
+        return musicas;
     }
 }

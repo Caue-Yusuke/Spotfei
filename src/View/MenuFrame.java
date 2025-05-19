@@ -5,7 +5,12 @@
 package View;
 
 import Controller.ControllerMenu;
+import Model.Musica;
+import Model.Playlist;
+import Model.Sessao;
 import Model.Usuario;
+import java.util.ArrayList;
+import javax.swing.BoxLayout;
 
 /**
  *
@@ -21,7 +26,26 @@ public class MenuFrame extends javax.swing.JFrame {
         c = new ControllerMenu(this);
         lbl_nome_usuario.setText(usuario.getNome());
         usuario.autenticar();
+        ArrayList<Playlist> playlists = c.buscarPlaylists();
+        mostrarPlaylists(playlists);
     }
+    
+        private void mostrarPlaylists(ArrayList<Playlist> playlist) {
+        painelPlaylist.removeAll();
+        painelPlaylist.setLayout(new BoxLayout(painelPlaylist, BoxLayout.Y_AXIS));
+
+        for (Playlist p : playlist) {
+            ArrayList<Musica> musicas = new ArrayList<>();
+            musicas = c.buscarMusicasPlaylist(p.getId_playlist());
+            p.setMusicas(musicas);
+            PlaylistPanel pp = new PlaylistPanel(p);       
+            painelPlaylist.add(pp);
+        }
+
+        painelPlaylist.revalidate();
+        painelPlaylist.repaint();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,8 +60,8 @@ public class MenuFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         botaoMusicas = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botaoCriar = new javax.swing.JButton();
+        botaoApagar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         painelPlaylist = new javax.swing.JPanel();
         botaoCurtidas = new javax.swing.JButton();
@@ -59,9 +83,21 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Adicionar");
+        botaoCriar.setText("Criar Playlist");
+        botaoCriar.setActionCommand("Criar Playlist");
+        botaoCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCriarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Remover");
+        botaoApagar.setText("Apagar Playlist");
+        botaoApagar.setActionCommand("Apagar Playlsit");
+        botaoApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoApagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelPlaylistLayout = new javax.swing.GroupLayout(painelPlaylist);
         painelPlaylist.setLayout(painelPlaylistLayout);
@@ -122,9 +158,9 @@ public class MenuFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(botaoCriar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
+                        .addComponent(botaoApagar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -139,11 +175,11 @@ public class MenuFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botaoCriar)
+                    .addComponent(botaoApagar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2)
-                .addGap(11, 11, 11)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCurtidas)
                     .addComponent(botaoDescurtidas)
@@ -178,6 +214,20 @@ public class MenuFrame extends javax.swing.JFrame {
         c.buscarMusicasHistorico();
         this.setVisible(false);
     }//GEN-LAST:event_botaoHistoricoActionPerformed
+
+    private void botaoCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarActionPerformed
+        // TODO add your handling code here:
+        CriarPlaylistFrame cp = new CriarPlaylistFrame();
+        cp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoCriarActionPerformed
+
+    private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApagarActionPerformed
+        // TODO add your handling code here:
+        ApagarPlaylistFrame ap = new ApagarPlaylistFrame();
+        ap.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,12 +265,12 @@ public class MenuFrame extends javax.swing.JFrame {
 //    }
     private ControllerMenu c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoApagar;
+    private javax.swing.JButton botaoCriar;
     private javax.swing.JButton botaoCurtidas;
     private javax.swing.JButton botaoDescurtidas;
     private javax.swing.JButton botaoHistorico;
     private javax.swing.JButton botaoMusicas;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;

@@ -17,14 +17,17 @@
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/Conexao.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Autenticacao.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Usuario.java</file>
-            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MusicasFrame.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerMusicas.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/MusicasDAO.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MusicaPanel.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Model/Sessao.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/PlaylistPanel.java</file>
-            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/HistoricoDAO.java</file>
             <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerMusicasPanel.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/DAO/PlaylistDAO.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/MusicasFrame.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/View/PlaylistFrame.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerPlaylist.java</file>
+            <file>file:/C:/Users/Acer%20Nitro%205/Documents/Spotfei/src/Controller/ControllerMenu.java</file>
         </group>
     </open-files>
 </project-private>

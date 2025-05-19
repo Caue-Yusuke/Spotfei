@@ -31,13 +31,7 @@ public class PlaylistFrame extends javax.swing.JFrame {
         painelMusicas.setLayout(new BoxLayout(painelMusicas, BoxLayout.Y_AXIS));
 
         for (Musica m : musicas) {
-            MusicaPanel mp = new MusicaPanel();
-            mp.setId(m.getId());
-            mp.setTitulo(m.getTitulo());
-            mp.setArtista(m.getArtista());
-            mp.setGenero(m.getGenero());
-            mp.setDuracao(m.getDuracao());
-            mp.setLetra(m.getLetra()); //aqui eu passo a leta e o id da musica pra quando ele clicar no botao ele salvar no historico
+            MusicaPlaylistPanel mp = new MusicaPlaylistPanel(m);
 
             painelMusicas.add(mp);
         }
