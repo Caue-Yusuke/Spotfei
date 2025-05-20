@@ -41,13 +41,8 @@ public class MusicasFrame extends javax.swing.JFrame {
         painelMusicas.setLayout(new BoxLayout(painelMusicas, BoxLayout.Y_AXIS));
 
         for (Musica m : musicas) {
-            MusicaPanel mp = new MusicaPanel();
-            mp.setId(m.getId());
-            mp.setTitulo(m.getTitulo());
-            mp.setArtista(m.getArtista());
-            mp.setGenero(m.getGenero());
-            mp.setDuracao(m.getDuracao());
-            mp.setLetra(m.getLetra());
+            MusicaPanel mp = new MusicaPanel(m);
+            
 
             painelMusicas.add(mp);
         }
@@ -226,9 +221,20 @@ public class MusicasFrame extends javax.swing.JFrame {
 
     private void botaoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisaActionPerformed
         // TODO add your handling code here:
-        if (!radioArtista.isSelected() && !radioGenero.isSelected() && !radioNome.isSelected()) {
-        JOptionPane.showMessageDialog(this, "Por favor, selecione um filtro antes de pesquisar."); // para não continuar sem filtro
+        String consulta = txtPesquisa.getText();
+        if (radioArtista.isSelected()){
+            c.buscarMusicasPesquisa(1, consulta);
         }
+        else if(radioGenero.isSelected()){
+            c.buscarMusicasPesquisa(2, consulta);
+        }
+        else if(radioNome.isSelected()){
+            c.buscarMusicasPesquisa(3, consulta);
+        }
+        else{
+            c.buscarMusicasPesquisa(4, consulta);
+        }
+        this.setVisible(false);
     }//GEN-LAST:event_botaoPesquisaActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed

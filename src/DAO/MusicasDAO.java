@@ -63,7 +63,6 @@ public class MusicasDAO {
         return resultado;
     }
     public ResultSet getMusicasPlaylist(int id_playlist) throws SQLException {
-        System.out.println(id_playlist);
         String sql = "SELECT p.id_playlist, m.*\n" +
                      "FROM musicas m\n" +
                      "JOIN musica_playlist mp\n" +
@@ -76,6 +75,46 @@ public class MusicasDAO {
         stmt.setInt(1, Sessao.getUsuario().getId());
         stmt.setInt(2, id_playlist);
         stmt.execute(); 
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
+    public ResultSet searchMusicaArtista(String consulta)throws SQLException{
+        String sql = "SELECT * FROM musicas\n" +
+                     "WHERE musicas.artista = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, consulta);
+        stmt.execute();
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
+    public ResultSet searchMusicaGenero(String consulta) throws SQLException{
+        String sql = "SELECT * FROM musicas\n" +
+                     "WHERE musicas.genero = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, consulta);
+        stmt.execute();
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
+    public ResultSet searchMusicaNome(String consulta) throws SQLException{
+        String sql = "SELECT * FROM musicas\n" +
+                     "WHERE musicas.titulo = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, consulta);
+        stmt.execute();
+        ResultSet resultado = stmt.getResultSet();
+        return resultado;
+    }
+    public ResultSet searchMusicaGeral(String consulta) throws SQLException{
+        String sql = "SELECT * FROM musicas\n" +
+                     "WHERE musicas.titulo = ? " +
+                     "OR musicas.genero = ? " +
+                     "OR musicas.artista = ?;";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, consulta);
+        stmt.setString(2, consulta);
+        stmt.setString(3, consulta);
+        stmt.execute();
         ResultSet resultado = stmt.getResultSet();
         return resultado;
     }

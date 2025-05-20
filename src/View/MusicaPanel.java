@@ -6,6 +6,7 @@ package View;
 
 import Controller.ControllerMusicas;
 import Controller.ControllerMusicasPanel;
+import Model.Musica;
 import Model.Sessao;
 import Model.Usuario;
 import javax.swing.JOptionPane;
@@ -19,37 +20,16 @@ public class MusicaPanel extends javax.swing.JPanel {
     /**
      * Creates new form MusicaPanel
      */
-    public MusicaPanel() {
+    public MusicaPanel(Musica musica) {
         initComponents();
         c = new ControllerMusicasPanel(this);
-    }
-    int ID_MUSICA;
-    public void setTitulo(String titulo) {
-        labelTitulo.setText( titulo);
-    }
-
-    public void setArtista(String artista) {
-        labelArtista.setText(artista);
-    }
-
-    public void setGenero(String genero) {
-        labelGenero.setText(genero);
-    }
-
-    public void setDuracao(int duracao) {
-        labelDuracao.setText("Duração: " + duracao + "s");
-    }
-    public void setId(int id) {
-        labelIdMusica.setText("ID: " + id);
-        ID_MUSICA = id;
-    }
-
-    public void setLetra(String letra) {
-        botaoLetra.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, letra, "Letra da Música", JOptionPane.INFORMATION_MESSAGE);
-         
-            
-        });
+        this.ID_MUSICA = musica.getId();
+        labelIdMusica.setText("ID: " + musica.getId());
+        labelTitulo.setText(musica.getTitulo());
+        labelGenero.setText(musica.getGenero());
+        labelDuracao.setText("Duração: " + musica.getDuracao());
+        labelArtista.setText(musica.getArtista());
+        this.letra = musica.getLetra();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,6 +134,7 @@ public class MusicaPanel extends javax.swing.JPanel {
 
     private void botaoLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLetraActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, letra, "Letra da Música", JOptionPane.INFORMATION_MESSAGE);
         c.salvarHistorico(ID_MUSICA);
     }//GEN-LAST:event_botaoLetraActionPerformed
 
@@ -166,7 +147,8 @@ public class MusicaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         c.descurtirMusica(ID_MUSICA);
     }//GEN-LAST:event_botaoDescurtirActionPerformed
-
+    private String letra;
+    private int ID_MUSICA;
     private ControllerMusicasPanel c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCurtir;

@@ -22,7 +22,6 @@ public class PlaylistFrame extends javax.swing.JFrame {
      */
     public PlaylistFrame(Playlist playlist) {
         initComponents();
-        c = new ControllerPlaylist(this);
         txtTituloPlaylist.setText(playlist.getNome());
         mostrarMusicas(playlist.getMusicas());
     }
@@ -61,7 +60,7 @@ public class PlaylistFrame extends javax.swing.JFrame {
         painelMusicas.setLayout(painelMusicasLayout);
         painelMusicasLayout.setHorizontalGroup(
             painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
         painelMusicasLayout.setVerticalGroup(
             painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,29 +81,27 @@ public class PlaylistFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(botaoVoltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtTituloPlaylist)
-                        .addGap(162, 162, 162))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botaoVoltar)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(txtTituloPlaylist)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(botaoVoltar)
-                .addGap(13, 13, 13)
+                .addGap(14, 14, 14)
                 .addComponent(txtTituloPlaylist)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -151,7 +148,6 @@ public class PlaylistFrame extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-    private ControllerPlaylist c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JScrollPane jScrollPane1;

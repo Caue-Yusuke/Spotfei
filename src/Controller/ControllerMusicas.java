@@ -9,6 +9,7 @@ import DAO.MusicasDAO;
 import Model.Musica;
 import Model.Sessao;
 import View.MusicasFrame;
+import View.ResultadoFrame;
 import java.util.ArrayList;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -46,6 +47,37 @@ public class ControllerMusicas {
         }
         return musicas;
     }
+    public void buscarMusicasPesquisa(int tipo_pesquisa, String consulta){
+        ArrayList<Musica> musicas = new ArrayList<>();
+        Conexao conexao = new Conexao();
+        try {
+            Connection conn = conexao.getConnection();
+            MusicasDAO dao = new MusicasDAO(conn);
+            ResultSet res;
+            if(tipo_pesquisa == 1){res = dao.searchMusicaArtista(consulta);}
+            else if(tipo_pesquisa == 2){res = dao.searchMusicaGenero(consulta);}
+            else if(tipo_pesquisa == 3){res = dao.searchMusicaNome(consulta);}
+            else if(tipo_pesquisa == 4){res = dao.searchMusicaGeral(consulta);}
+            else{res = dao.getMusicas();}
+            while (res.next()) {
+                Musica m = new Musica();
+                m.setId(res.getInt("id_musica"));
+                m.setTitulo(res.getString("titulo"));
+                m.setDuracao(res.getInt("duracao"));
+                m.setArtista(res.getString("artista"));
+                m.setGenero(res.getString("genero"));
+                m.setLetra(res.getString("letra"));
+                musicas.add(m);
+            }
+            ResultadoFrame rf = new ResultadoFrame(musicas);
+            rf.setVisible(true);
+        } catch (SQLException e) {
+            e.printStackTrace(); // pode trocar por JOptionPane se for necessário
+        }
+        
+        
+    }
+    
     
     
     

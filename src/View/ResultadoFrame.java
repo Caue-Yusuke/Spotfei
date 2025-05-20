@@ -4,21 +4,36 @@
  */
 package View;
 
-import Controller.ControllerApagarPlaylist;
+import Model.Musica;
 import Model.Sessao;
+import java.util.ArrayList;
+import javax.swing.BoxLayout;
 
 /**
  *
  * @author Acer Nitro 5
  */
-public class ApagarPlaylistFrame extends javax.swing.JFrame {
+public class ResultadoFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ApagarPlaylistFrame
+     * Creates new form ResultadoFrame
      */
-    public ApagarPlaylistFrame() {
+    public ResultadoFrame(ArrayList<Musica> musicas) {
         initComponents();
-        c = new ControllerApagarPlaylist(this);
+        mostrarMusicas(musicas);
+    }
+    private void mostrarMusicas(ArrayList<Musica> musicas) {
+        painelMusicas.removeAll();
+        painelMusicas.setLayout(new BoxLayout(painelMusicas, BoxLayout.Y_AXIS));
+
+        for (Musica m : musicas) {
+            MusicaPanel mp = new MusicaPanel(m);
+
+            painelMusicas.add(mp);
+        }
+
+        painelMusicas.revalidate();
+        painelMusicas.repaint();
     }
 
     /**
@@ -30,12 +45,27 @@ public class ApagarPlaylistFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        botaoApagar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        painelMusicas = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Resultado(s):");
+
+        javax.swing.GroupLayout painelMusicasLayout = new javax.swing.GroupLayout(painelMusicas);
+        painelMusicas.setLayout(painelMusicasLayout);
+        painelMusicasLayout.setHorizontalGroup(
+            painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+        painelMusicasLayout.setVerticalGroup(
+            painelMusicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 224, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(painelMusicas);
 
         jButton1.setText("VOLTAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -44,46 +74,31 @@ public class ApagarPlaylistFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Insira o ID da playlist que deseja excluir:");
-
-        botaoApagar.setText("APAGAR");
-        botaoApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoApagarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(botaoApagar)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jButton1)
+                .addGap(56, 56, 56)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoApagar)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,16 +109,8 @@ public class ApagarPlaylistFrame extends javax.swing.JFrame {
         MenuFrame menu = new MenuFrame(Sessao.getUsuario());
         menu.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApagarActionPerformed
-        // TODO add your handling code here:
-        int ID = Integer.parseInt(txtID.getText());
-        c.apagarPlaylist(ID);
-        MenuFrame menu = new MenuFrame(Sessao.getUsuario());
-        menu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_botaoApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,28 +129,28 @@ public class ApagarPlaylistFrame extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ApagarPlaylistFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ResultadoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ApagarPlaylistFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ResultadoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ApagarPlaylistFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ResultadoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ApagarPlaylistFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ResultadoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new ApagarPlaylistFrame().setVisible(true);
+//                new ResultadoFrame().setVisible(true);
 //            }
 //        });
 //    }
-    private ControllerApagarPlaylist c;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoApagar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel painelMusicas;
     // End of variables declaration//GEN-END:variables
 }
