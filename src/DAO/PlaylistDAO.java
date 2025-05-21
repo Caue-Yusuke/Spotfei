@@ -57,8 +57,9 @@ public class PlaylistDAO {
         
     }
     public ResultSet getPlaylists() throws SQLException {
-        String sql = "SELECT * FROM playlist";
+        String sql = "SELECT * FROM playlist WHERE playlist.id_usuario = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, Sessao.getUsuario().getId());
         stmt.execute();
         ResultSet resultado = stmt.getResultSet();
         return resultado;
