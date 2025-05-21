@@ -23,6 +23,7 @@ public class ControllerLogin {
     public ControllerLogin(LoginFrame view) {
         this.view = view;
     }
+    //verifica se o usuario existe e realiza o login
     public void loginUsuario(){
         Usuario usuario = new Usuario(view.getEmail_login().getText(),view.getSenha_login().getText(), null, 0, 0);
         Conexao conexao = new Conexao();

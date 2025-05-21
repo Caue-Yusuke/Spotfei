@@ -20,7 +20,7 @@ public class ControllerCriarPlaylist {
     public ControllerCriarPlaylist(CriarPlaylistFrame view) {
         this.view = view;
     }
-    
+    //insere a playlist no banco
     public void criarPlaylist(String nome_playlist){
         Conexao conexao = new Conexao();
         try {

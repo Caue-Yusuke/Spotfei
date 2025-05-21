@@ -21,7 +21,7 @@ public class ControllerMusicaPlaylistPanel {
     public ControllerMusicaPlaylistPanel(MusicaPlaylistPanel view) {
         this.view = view;
     }
-    
+    //insere aa musica no historico
     public void salvarHistorico(int id_musica){
         int id_usuario = Sessao.getUsuario().getId();
         int idMusica = id_musica;
@@ -37,6 +37,7 @@ public class ControllerMusicaPlaylistPanel {
             
         }
     }
+    //insere a musica em curtidas no banco
     public void curtirMusica(int id_musica){
         int id_usuario = Sessao.getUsuario().getId();
         int idMusica = id_musica;
@@ -53,6 +54,7 @@ public class ControllerMusicaPlaylistPanel {
             
         }
     }
+    //insere a musica em descurtidas no banco
     public void descurtirMusica(int id_musica){
         int id_usuario = Sessao.getUsuario().getId();
         int idMusica = id_musica;

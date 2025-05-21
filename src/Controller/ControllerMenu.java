@@ -53,6 +53,7 @@ public class ControllerMenu {
             e.printStackTrace(); 
         }
     }
+    //retorna o arraylist das musicas descurtidas
     public void buscarMusicasDescurtidas() {
         ArrayList<Musica> musicas = new ArrayList<>();
         Conexao conexao = new Conexao();
@@ -81,6 +82,7 @@ public class ControllerMenu {
             e.printStackTrace(); 
         }
     }
+    //retorna o arraylist das musicas 10 ultimas musicas do historico
     public void buscarMusicasHistorico() {
         ArrayList<Musica> musicas = new ArrayList<>();
         Conexao conexao = new Conexao();
@@ -109,6 +111,7 @@ public class ControllerMenu {
             e.printStackTrace(); 
         }
     }
+    //procura playlist
     public ArrayList<Playlist> buscarPlaylists(){
         ArrayList<Playlist> playlists = new ArrayList<>();
         Conexao conexao = new Conexao();
@@ -128,6 +131,7 @@ public class ControllerMenu {
         }
         return playlists;
     }
+    //busca as musicas da playlist
     public ArrayList<Musica> buscarMusicasPlaylist(int id_playlist){
         ArrayList<Musica> musicas = new ArrayList<>();
         Conexao conexao = new Conexao ();

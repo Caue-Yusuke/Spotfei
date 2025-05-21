@@ -14,13 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author Acer Nitro 5
  */
+
 public class ControllerApagarPlaylist {
     private ApagarPlaylistFrame view;
 
     public ControllerApagarPlaylist(ApagarPlaylistFrame view) {
         this.view = view;
     }
-    
+    //apaga playlist
     public void apagarPlaylist(int id_playlist){
         Conexao conexao = new Conexao();
         try {

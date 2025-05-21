@@ -24,7 +24,7 @@ public class ControllerMusicas {
     public ControllerMusicas(MusicasFrame view) {
         this.view = view;
     }
-
+    //retorna o arraylist com as musicas
     public ArrayList<Musica> buscarMusicas() {
         ArrayList<Musica> musicas = new ArrayList<>();
         Conexao conexao = new Conexao();
@@ -47,6 +47,7 @@ public class ControllerMusicas {
         }
         return musicas;
     }
+    //retorna as musicas de acordo com a pesquisa
     public void buscarMusicasPesquisa(int tipo_pesquisa, String consulta){
         ArrayList<Musica> musicas = new ArrayList<>();
         Conexao conexao = new Conexao();

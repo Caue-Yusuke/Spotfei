@@ -4,7 +4,6 @@
  */
 package View;
 
-import Controller.ControllerPlaylistPanel;
 import Model.Playlist;
 import java.awt.Window;
 import javax.swing.SwingUtilities;
@@ -20,7 +19,6 @@ public class PlaylistPanel extends javax.swing.JPanel {
      */
     public PlaylistPanel(Playlist playlist) {
         initComponents();
-        c = new ControllerPlaylistPanel(this);
         thisPlaylist = playlist;
         txt_id_playlist.setText("ID: "+ playlist.getId_playlist());
         txtNome.setText("" + thisPlaylist.getNome());
@@ -90,7 +88,6 @@ public class PlaylistPanel extends javax.swing.JPanel {
         janela.setVisible(false);
     }//GEN-LAST:event_botaoPlaylistActionPerformed
     private Playlist thisPlaylist;
-    private ControllerPlaylistPanel c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoPlaylist;
     private javax.swing.JLabel txtNome;

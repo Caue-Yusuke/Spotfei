@@ -22,8 +22,10 @@ public class PlaylistFrame extends javax.swing.JFrame {
      */
     public PlaylistFrame(Playlist playlist) {
         initComponents();
+        c = new ControllerPlaylist(this);
         txtTituloPlaylist.setText(playlist.getNome());
         mostrarMusicas(playlist.getMusicas());
+        ID_PLAYLIST = playlist.getId_playlist();
     }
     private void mostrarMusicas(ArrayList<Musica> musicas) {
         painelMusicas.removeAll();
@@ -51,9 +53,13 @@ public class PlaylistFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         painelMusicas = new javax.swing.JPanel();
         botaoVoltar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtAdicionar = new javax.swing.JTextField();
+        boatoAdicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtTituloPlaylist.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtTituloPlaylist.setText("NOME_PLAYLIST");
 
         javax.swing.GroupLayout painelMusicasLayout = new javax.swing.GroupLayout(painelMusicas);
@@ -76,30 +82,51 @@ public class PlaylistFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("ID MUSICA:");
+
+        boatoAdicionar.setText("ADD");
+        boatoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boatoAdicionarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoVoltar)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(14, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(txtTituloPlaylist)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(botaoVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boatoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtTituloPlaylist)
+                .addGap(163, 163, 163))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botaoVoltar)
-                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoVoltar)
+                    .addComponent(jLabel1)
+                    .addComponent(txtAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boatoAdicionar))
+                .addGap(13, 13, 13)
                 .addComponent(txtTituloPlaylist)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -113,6 +140,13 @@ public class PlaylistFrame extends javax.swing.JFrame {
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void boatoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boatoAdicionarActionPerformed
+        // TODO add your handling code here:
+        int id_musica_adicionada = Integer.parseInt(txtAdicionar.getText());
+        c.adicionarMusica(id_musica_adicionada, this.ID_PLAYLIST);
+        this.setVisible(false);
+    }//GEN-LAST:event_boatoAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,10 +182,15 @@ public class PlaylistFrame extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private int ID_PLAYLIST;
+    private ControllerPlaylist c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boatoAdicionar;
     private javax.swing.JButton botaoVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel painelMusicas;
+    private javax.swing.JTextField txtAdicionar;
     private javax.swing.JLabel txtTituloPlaylist;
     // End of variables declaration//GEN-END:variables
 }

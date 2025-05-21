@@ -19,8 +19,6 @@ public class Sessao {
         return usuarioLogado;
     }
 
-    public static void limparSessao() {
-        usuarioLogado = null;
-    }
+
     
 }

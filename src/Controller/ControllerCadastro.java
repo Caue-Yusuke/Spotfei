@@ -21,7 +21,7 @@ public class ControllerCadastro {
     public ControllerCadastro(CadastroFrame view){
         this.view = view;
     }
-    
+    //salva o usuario no banco
     public void salvarUsuario(){
         
         String email = view.getEmail_cadastro().getText();

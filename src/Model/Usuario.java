@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Usuario extends Pessoa implements Autenticacao{
     //atributos exclusivos de Usuario
+    public static int verificacao = 0; // usada para a verificacao ocorrer apenas uma vez
     private String email;
     private String senha;
     private int id;
@@ -39,17 +40,21 @@ public class Usuario extends Pessoa implements Autenticacao{
     
     //metodo de verificacao de robo
     public void autenticar() {
-        int resposta = JOptionPane.showConfirmDialog(
-            null,
-            "Você é um robô?",
-            "Verificação",
-            JOptionPane.YES_NO_OPTION
-        );
+        if(verificacao == 0){
+            int resposta = JOptionPane.showConfirmDialog(
+                null,
+                "Você é um robô?",
+                "Verificação",
+                JOptionPane.YES_NO_OPTION
+            );
 
-        if (resposta == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        } else if (resposta == JOptionPane.NO_OPTION) {
+            if (resposta == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            } else if (resposta == JOptionPane.NO_OPTION) {
+            }
+            verificacao ++;
         }
+        
     }
     @Override
     public String toString() {
