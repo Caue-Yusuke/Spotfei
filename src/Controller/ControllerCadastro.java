@@ -8,6 +8,7 @@ import DAO.Conexao;
 import DAO.UsuarioDAO;
 import Model.Usuario;
 import View.CadastroFrame;
+import View.LoginFrame;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -41,5 +42,7 @@ public class ControllerCadastro {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(view, "Usuário não cadastrado!","Erro", JOptionPane.ERROR_MESSAGE);
         }
+        LoginFrame lf = new LoginFrame();
+        lf.setVisible(true);
     }
 }

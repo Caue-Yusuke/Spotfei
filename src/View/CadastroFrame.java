@@ -153,6 +153,7 @@ public class CadastroFrame extends javax.swing.JFrame {
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
         c.salvarUsuario();
+        this.setVisible(false);
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
 
