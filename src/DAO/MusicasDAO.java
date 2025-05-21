@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- *
+ * DAO das musicas
  * @author Acer Nitro 5
  */
 public class MusicasDAO {

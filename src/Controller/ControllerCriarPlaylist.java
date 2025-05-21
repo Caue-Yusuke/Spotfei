@@ -11,7 +11,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Controller de CriarPlaylistFrame
  * @author Acer Nitro 5
  */
 public class ControllerCriarPlaylist {

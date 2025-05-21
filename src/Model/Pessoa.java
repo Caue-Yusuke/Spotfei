@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * Classe pessoa
  * @author Acer Nitro 5
  */
 

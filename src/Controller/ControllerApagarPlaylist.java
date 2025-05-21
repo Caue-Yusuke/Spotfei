@@ -11,7 +11,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  Controller de ApagarPlaylistFrame
  * @author Acer Nitro 5
  */
 

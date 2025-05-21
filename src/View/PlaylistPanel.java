@@ -9,7 +9,7 @@ import java.awt.Window;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * Painel das playlists no menu
  * @author Acer Nitro 5
  */
 public class PlaylistPanel extends javax.swing.JPanel {

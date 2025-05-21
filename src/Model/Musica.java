@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * Classe Musica
  * @author Acer Nitro 5
  */
 public class Musica {

@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * Interface para autenticacao em usuarios
  * @author Acer Nitro 5
  */
 public interface Autenticacao {

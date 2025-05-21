@@ -7,7 +7,7 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe Playlist
  * @author Acer Nitro 5
  */
 public class Playlist {

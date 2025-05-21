@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Controller de MusicaPanel
  * @author Acer Nitro 5
  */
 public class ControllerMusicasPanel {

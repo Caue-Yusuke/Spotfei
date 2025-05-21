@@ -9,7 +9,7 @@ import Model.Musica;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Modelo de painel para as musicas das playlists
  * @author Acer Nitro 5
  */
 public class MusicaPlaylistPanel extends javax.swing.JPanel {

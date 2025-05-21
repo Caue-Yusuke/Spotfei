@@ -111,7 +111,6 @@
     <Component class="javax.swing.JButton" name="botaoCriar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Criar Playlist"/>
-        <Property name="actionCommand" type="java.lang.String" value="Criar Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCriarActionPerformed"/>

@@ -14,7 +14,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Controller de LoginFrame
  * @author Acer Nitro 5
  */
 public class ControllerLogin {

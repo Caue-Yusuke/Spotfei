@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Controller de  MusicaPlaylistPanel
  * @author Acer Nitro 5
  */
 public class ControllerMusicaPlaylistPanel {

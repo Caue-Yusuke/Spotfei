@@ -12,7 +12,7 @@ import Model.Usuario;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Modelo de painel de musica
  * @author Acer Nitro 5
  */
 public class MusicaPanel extends javax.swing.JPanel {

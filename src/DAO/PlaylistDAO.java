@@ -7,7 +7,7 @@ import Model.Sessao;
 import java.sql.*;
 
 /**
- *
+ * DAO das playlists
  * @author Acer Nitro 5
  */
 public class PlaylistDAO {

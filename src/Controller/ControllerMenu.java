@@ -15,7 +15,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- *
+ * Controller de MenuFrame
  * @author Acer Nitro 5
  */
 public class ControllerMenu {

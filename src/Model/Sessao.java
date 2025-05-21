@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * Classe sessao para armazenar qual o usuario que esta logado
  * @author Acer Nitro 5
  */
 public class Sessao {

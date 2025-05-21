@@ -6,7 +6,7 @@ package spotfei;
 import View.LoginFrame;
 
 /**
- *
+ * Main, inicializa o GUI
  * @author unifcohta
  */
 public class Spotfei {

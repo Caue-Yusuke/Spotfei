@@ -12,7 +12,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Controller de CadatroFrame
  * @author Acer Nitro 5
  */
 public class ControllerCadastro {

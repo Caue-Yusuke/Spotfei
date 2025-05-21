@@ -7,8 +7,8 @@ package DAO;
 import java.sql.*;
 import Model.Usuario;
 
-/**
- *
+/** 
+ * DAO de usuario
  * @author Acer Nitro 5
  */
 public class UsuarioDAO {

@@ -7,7 +7,7 @@ package Model;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Classe Usuario
  * @author Acer Nitro 5
  */
 public class Usuario extends Pessoa implements Autenticacao{

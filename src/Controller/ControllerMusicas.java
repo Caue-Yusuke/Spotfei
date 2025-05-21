@@ -15,7 +15,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Controller de  MusicasFrame
  * @author Acer Nitro 5
  */
 public class ControllerMusicas {
