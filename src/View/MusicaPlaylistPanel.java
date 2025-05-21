@@ -6,7 +6,9 @@ package View;
 
 import Controller.ControllerMusicaPlaylistPanel;
 import Model.Musica;
+import java.awt.Window;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  * Modelo de painel para as musicas das playlists
@@ -17,10 +19,11 @@ public class MusicaPlaylistPanel extends javax.swing.JPanel {
     /**
      * Creates new form MusicaPlaylistPanel
      */
-    public MusicaPlaylistPanel(Musica musica) {
+    public MusicaPlaylistPanel(Musica musica,int id_playlist) {
         initComponents();
         c = new ControllerMusicaPlaylistPanel(this);
-        this.ID_MUSICA = musica.getId();
+        ID_MUSICA = musica.getId();
+        ID_PLAYLIST = id_playlist;
         labelIdMusica.setText("ID: " + musica.getId());
         labelTitulo.setText(musica.getTitulo());
         labelGenero.setText(musica.getGenero());
@@ -165,10 +168,14 @@ public class MusicaPlaylistPanel extends javax.swing.JPanel {
 
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
         // TODO add your handling code here:
+        c.removerMusica(this.ID_MUSICA, this.ID_PLAYLIST);
+        Window janela = SwingUtilities.getWindowAncestor(MusicaPlaylistPanel.this);
+        janela.setVisible(false);
     }//GEN-LAST:event_botaoRemoverActionPerformed
     
     private String letra;
     private int ID_MUSICA;
+    private int ID_PLAYLIST;
     private ControllerMusicaPlaylistPanel c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCurtir;

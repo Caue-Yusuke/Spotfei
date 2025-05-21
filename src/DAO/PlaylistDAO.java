@@ -85,8 +85,8 @@ public class PlaylistDAO {
     }
     public void deleteMusicaPlaylist(int id_musica, int id_playlist)throws SQLException{
         String sql = "DELETE FROM musica_playlist\n" +
-                     "WHERE id_playlist = ?;\n" +
-                     "AND id_musica = ?";
+                     "WHERE id_playlist = ? \n" +
+                     "AND id_musica = ? ";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id_playlist);
         stmt.setInt(2, id_musica);

@@ -6,6 +6,7 @@ package Controller;
 import DAO.Conexao;
 import DAO.PlaylistDAO;
 import Model.Sessao;
+import View.MenuFrame;
 import View.MusicaPlaylistPanel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -70,5 +71,19 @@ public class ControllerMusicaPlaylistPanel {
             JOptionPane.showMessageDialog(view, "Musica nao Salva!","Erro", JOptionPane.ERROR_MESSAGE);
             
         }
+    }
+    public void removerMusica(int id_musica,int id_playlist){
+        Conexao conexao = new Conexao();
+        try {
+            Connection conn = conexao.getConnection();
+            PlaylistDAO dao = new PlaylistDAO(conn);
+            dao.deleteMusicaPlaylist(id_musica, id_playlist);
+            JOptionPane.showMessageDialog(view, "Musica deletada!","Aviso", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(view, "Erro ao deletar musica!","Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        MenuFrame menu = new MenuFrame(Sessao.getUsuario());
+        menu.setVisible(true);
     }
 }

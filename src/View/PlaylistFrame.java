@@ -24,15 +24,17 @@ public class PlaylistFrame extends javax.swing.JFrame {
         initComponents();
         c = new ControllerPlaylist(this);
         txtTituloPlaylist.setText(playlist.getNome());
-        mostrarMusicas(playlist.getMusicas());
         ID_PLAYLIST = playlist.getId_playlist();
+        mostrarMusicas(playlist.getMusicas());
+        
     }
     private void mostrarMusicas(ArrayList<Musica> musicas) {
         painelMusicas.removeAll();
         painelMusicas.setLayout(new BoxLayout(painelMusicas, BoxLayout.Y_AXIS));
 
         for (Musica m : musicas) {
-            MusicaPlaylistPanel mp = new MusicaPlaylistPanel(m);
+            System.out.println(this.ID_PLAYLIST);
+            MusicaPlaylistPanel mp = new MusicaPlaylistPanel(m, this.ID_PLAYLIST);
 
             painelMusicas.add(mp);
         }
@@ -150,7 +152,7 @@ public class PlaylistFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_boatoAdicionarActionPerformed
 
 
-    private int ID_PLAYLIST;
+    public int ID_PLAYLIST;
     private ControllerPlaylist c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boatoAdicionar;
